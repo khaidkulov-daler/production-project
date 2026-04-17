@@ -3,10 +3,9 @@ import webpack from 'webpack';
 import { BuildOptions } from './types/config';
 
 export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
-
     const typescriptLoader = {
         test: /\.tsx?$/,
-        use: "ts-loader",
+        use: 'ts-loader',
         exclude: /node_modules/,
     };
 
@@ -14,22 +13,22 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
         test: /\.(js|jsx|ts|tsx)$/,
         exclude: /node_modules/,
         use: {
-            loader: "babel-loader",
+            loader: 'babel-loader',
             options: {
                 presets: ['@babel/preset-env'],
                 plugins: [
                     [
-                        "i18next-extract",
+                        'i18next-extract',
                         {
                             locales: ['ru', 'en'],
-                            keyDefaultValue: true
-                        }
+                            keyDefaultValue: true,
+                        },
                     ],
-                ]
+                ],
             },
 
-        }
-    }
+        },
+    };
 
     const fileLoader = {
         test: /\.(png|jpe?g|gif|woff2|woff)$/i,
@@ -38,12 +37,12 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
                 loader: 'file-loader',
             },
         ],
-    }
+    };
 
     const svgLoader = {
         test: /\.svg$/,
-        use: ['@svgr/webpack']
-    }
+        use: ['@svgr/webpack'],
+    };
 
     const styleLoader = {
         test: /\.s[ac]ss$/i,
@@ -52,16 +51,16 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
             isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
             // Translates CSS into CommonJS
             {
-                loader: "css-loader",
+                loader: 'css-loader',
                 options: {
                     modules: {
                         auto: (resPath: string) => Boolean(resPath.includes('.module.')),
-                        localIdentName: isDev ? '[path][name]__[local]--[hash:base64:5]' : '[hash:base64:8]'
-                    }
-                }
+                        localIdentName: isDev ? '[path][name]__[local]--[hash:base64:5]' : '[hash:base64:8]',
+                    },
+                },
             },
             // Compiles Sass to CSS
-            "sass-loader",
+            'sass-loader',
         ],
     };
 
@@ -71,5 +70,5 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
         babelLoader,
         typescriptLoader,
         styleLoader,
-    ]
+    ];
 }

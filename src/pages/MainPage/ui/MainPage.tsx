@@ -1,6 +1,6 @@
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next';
 
-const MainPage = () => {
+function MainPage() {
     const { t } = useTranslation('main');
 
     return (
@@ -8,7 +8,7 @@ const MainPage = () => {
             {t('Новый пеевод')}
             {t('Страница Главная')}
         </div>
-    )
+    );
 }
 
 export default MainPage;
