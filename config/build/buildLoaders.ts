@@ -46,7 +46,7 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
         use: ['@svgr/webpack'],
     };
 
-    const styleLoader = buildCssLoader(isDev)
+    const styleLoader = buildCssLoader(isDev);
 
     return [
         fileLoader,
