@@ -6,3 +6,5 @@ package-lock.json
 **/.DS_Store
 *storybook.log
 storybook-static
+.loki/report.html
+.loki/report.json
