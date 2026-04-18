@@ -6,7 +6,6 @@ function MainPage() {
 
     return (
         <div>
-            <BugButton />
             {t('Страница Главная')}
         </div>
     );
