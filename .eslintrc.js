@@ -4,7 +4,12 @@ module.exports = {
         es2021: true,
         jest: true,
     },
-    extends: ['airbnb', 'plugin:@typescript-eslint/recommended', 'plugin:i18next/recommended', 'plugin:storybook/recommended'],
+    extends: [
+        'airbnb',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:i18next/recommended',
+        'plugin:storybook/recommended',
+    ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaFeatures: {
@@ -17,7 +22,7 @@ module.exports = {
         '@typescript-eslint',
         'react',
         'i18next',
-        "react-hooks",
+        'react-hooks',
     ],
     rules: {
         indent: [2, 4],
@@ -46,19 +51,20 @@ module.exports = {
         'max-len': ['error', { code: 120, ignoreComments: true }],
         'jsx-a11y/click-events-have-key-events': 'off',
         'jsx-a11y/no-static-element-interactions': 'off',
-        "react-hooks/rules-of-hooks": "error", 
-        "react-hooks/exhaustive-deps": "error",
+        'react-hooks/rules-of-hooks': 'error',
+        'react-hooks/exhaustive-deps': 'error',
+        'no-param-reassign': 'off',
     },
     globals: {
         __IS_DEV__: true,
     },
     overrides: [
-        { 
-            files: '**/src/**/*.{test,stories}.{ts,tsx}', 
-            rules: { 
+        {
+            files: '**/src/**/*.{test,stories}.{ts,tsx}',
+            rules: {
                 'i18next/no-literal-string': 'off',
-                'max-len': 'off'
-            } 
+                'max-len': 'off',
+            },
         },
     ],
 };
